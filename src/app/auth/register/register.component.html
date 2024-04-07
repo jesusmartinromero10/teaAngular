@@ -1,2 +1,24 @@
-<p>register works!</p>
-<button mat-raised-button color="primary">Primary</button>
+<h1>Pagina de registro</h1>
+<form [formGroup]="myForm" (ngSubmit)="sendForm()">
+    <div>
+        <div>
+            <label for="email">Introduce su Email</label>
+            <input type="email" formControlName="email" placeholder="Email">
+
+        </div>
+        <div>
+            <label for="texto">Introduce su Nombre</label>
+            <input type="text" formControlName="texto" placeholder="Nombre">
+            
+        </div>
+        <div>
+            <label for="password">Introduce su Contraseña</label>
+            <input type="password" formControlName="password" placeholder="Contraseña">
+            
+        </div>
+
+        <button type="submit" [disabled]="myForm.invalid">Registrarme</button>
+
+    </div>
+
+</form>

@@ -1,2 +1,19 @@
-<p>login works!</p>
-<button mat-raised-button color="primary">Primary</button>
+<h1>Pagina de Login</h1>
+<form [formGroup]="myForm" (ngSubmit)="sendForm()">
+    <div>
+        <div>
+            <label for="email">Introduce su Email</label>
+            <input type="email" formControlName="email" placeholder="Email">
+
+        </div>
+        <div>
+            <label for="password">Introduce su Contraseña</label>
+            <input type="password" formControlName="password" placeholder="Contraseña">
+            
+        </div>
+
+        <button type="submit" [disabled]="myForm.invalid">iniciar sesión</button>
+
+    </div>
+
+</form>
