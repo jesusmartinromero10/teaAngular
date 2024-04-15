@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private authService: AuthService = inject(AuthService)
   myForm:FormGroup;
 
   constructor(){
@@ -17,6 +19,7 @@ export class LoginComponent {
   }
   sendForm(){
     if(this.myForm.valid){
+      this.authService.login(this.myForm.value.email, this.myForm.value.password)
 
       console.log(this.myForm.value)
     }
